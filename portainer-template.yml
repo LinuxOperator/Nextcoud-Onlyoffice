@@ -1,0 +1,45 @@
+version: '3'
+services:
+  nextcloud_app:
+    container_name: nextcloud_app
+    image: nextcloud:fpm
+    restart: unless-stopped
+    volumes:
+      - /portainer/Files/AppData/Config/Nextcloud/data:/data
+      - /portainer/Files/AppData/Config/Nextcloud/config:/config
+      - /portainer/Files/AppData/Config/Nextcloud/web_data:/var/www/html
+  nextcloud_onlyoffice:
+    container_name: nextcloud_onlyoffice
+    image: onlyoffice/documentserver:latest
+    restart: unless-stopped
+    volumes:
+      - /portainer/Files/AppData/Config/Nextcloud/onlyoffice/redis:/var/lib/redis
+      - /portainer/Files/AppData/Config/Nextcloud/onlyoffice/fonts:/usr/share/fonts/truetype/custom
+      - /portainer/Files/AppData/Config/Nextcloud/onlyoffice/log:/var/log/onlyoffice
+      - /portainer/Files/AppData/Config/Nextcloud/onlyoffice/data:/var/www/onlyoffice/Data
+      - /portainer/Files/AppData/Config/Nextcloud/onlyoffice/rabbitmq:/var/lib/rabbitmq
+      - /portainer/Files/AppData/Config/Nextcloud/onlyoffice/lib:/var/lib/onlyoffice
+      - /portainer/Files/AppData/Config/Nextcloud/onlyoffice/postgresql:/var/lib/postgresql
+  nextcloud_nginx:
+    container_name: nextcloud_nginx
+    image: nginx
+    restart: unless-stopped
+    ports:
+      - 8030:80
+    volumes:
+      - /portainer/Files/Inputs/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - /portainer/Files/AppData/Config/Nextcloud/web_data:/var/www/html
+  nextcloud_db:
+    image: linuxserver/mariadb
+    container_name: nextcloud_db
+    environment:
+      - PUID=1000
+      - PGID=100
+      - MYSQL_ROOT_PASSWORD=ChangeMe!!!
+      - TZ=America/New_York
+      - MYSQL_DATABASE=nextcloud_db
+      - MYSQL_USER=nextcloud
+      - MYSQL_PASSWORD=ChangeMe!!!
+    volumes:
+      - /portainer/Files/AppData/Config/Nextcloud/DB:/config
+    restart: unless-stopped
