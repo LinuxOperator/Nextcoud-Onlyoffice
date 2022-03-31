@@ -33,24 +33,23 @@ curl -s https://raw.githubusercontent.com/LinuxOperator/Nextcoud-Onlyoffice/main
     - MYSQL_ROOT_PASSWORD
     - MYSQL_PASSWORD
     - _(default value "ChangeMe!!!")_
-
-4. Make sure nginx.conf is in the correct location
-5. Deploy the stack
-6. Navigate to http://<portainer_ip>:4030
-7. Create the admin account and set the following settings:
+4. Deploy the stack
+5. Navigate to http://<portainer_ip>:4030
+6. Create the admin account and set the following settings:
 
 ![image](https://user-images.githubusercontent.com/68796633/161149500-b1857171-27f0-4be8-beef-dd0b1aa86101.png)
 
 
-8. Click Cancel to skip recommended plugins
-9. Run "sudo sh set_configuration.sh"
-10. Try creating/opening a ".docx" file, if it doesn't work try running the above command again
+7. Click Cancel to skip recommended plugins
 
 
 ### Run command to finalize configuration:
 ```
 curl -s https://raw.githubusercontent.com/LinuxOperator/Nextcoud-Onlyoffice/main/set_configuration.sh | bash
 ```
+Try creating/opening a ".docx" file, if it doesn't work try running the above command again
+
+
 
 ## Common problems:
 
