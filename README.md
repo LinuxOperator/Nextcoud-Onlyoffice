@@ -1,5 +1,13 @@
 # Nextcoud-Onlyoffice
 
+Follow the instructions bellow to install Nextcloud and Onlyoffice in portainer (docker).
+
+
+## Notes:
+
+Run the following command to enable SMB (you will have to run this every time nextcloud is updated):
+- docker exec -it nextcloud_app apt install -y smbclient
+
 ## Instructions
 
 ### Downlaod Files:
