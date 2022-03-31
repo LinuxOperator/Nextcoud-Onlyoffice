@@ -21,7 +21,7 @@ Required file tree on your system:
 
 ## Rapid Instructions
 
-Want to see the Manual Instructions? [Link](https://github.com/LinuxOperator/Nextcoud-Onlyoffice/edit/main/README.md#manual-instructions)
+Want to see the Manual Instructions? [Link](https://github.com/LinuxOperator/Nextcoud-Onlyoffice/blob/main/README.md#manual-instructions)
 
 ### Run command to files:
 ```
