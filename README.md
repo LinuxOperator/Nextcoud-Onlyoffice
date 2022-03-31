@@ -58,6 +58,7 @@ Try creating/opening a ".docx" file, if it doesn't work try running the above co
 ![image](https://user-images.githubusercontent.com/68796633/161149659-38050399-e7c1-44bc-81db-a34e2c19c587.png)
 
 2. Onlyoffice isn't working (file is downloaded to computer)
+   - Reload the webpage
    - Wait up to 2min after running the final script
    - Re-run the final script
 
@@ -130,9 +131,11 @@ sudo nano /portainer/Files/AppData/Config/Nextcloud/web_data/config/config.php
 ```
 
 #### 2. If you want to use SMB you need to enable the Add-on "External Storage" and install the smbclient.
-- In the portainer GUI, run shell for the "nextcloud_app" container and execute this:
+- In the portainer execute this:
 ```
-apt install smbclient
+docker exec -it $(docker ps | grep nextcloud_app | cut -d' ' -f1) apt update -y
+docker exec -it $(docker ps | grep nextcloud_app | cut -d' ' -f1) apt upgrade -y
+docker exec -it $(docker ps | grep nextcloud_app | cut -d' ' -f1) apt install -y smbclient
 ```
 - Unfortunately this will not survive a docker update, you will need to run this every time you update.
 
