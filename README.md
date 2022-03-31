@@ -61,6 +61,13 @@ Try creating/opening a ".docx" file, if it doesn't work try running the above co
    - Wait up to 2min after running the final script
    - Re-run the final script
 
+3. I broke it and want to start over
+   - Delete the Stack in portainer
+   - Delete all volume data
+```
+rm -rf /portainer/Files/AppData/Config/Nextcloud/
+```
+
 ## Manual Instructions
 
 ## Self signed certs:
