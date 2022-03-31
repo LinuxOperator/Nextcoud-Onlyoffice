@@ -21,6 +21,8 @@ Required file tree on your system:
 
 ## Rapid Instructions
 
+Want to see the Manual Instructions? [Link](https://github.com/LinuxOperator/Nextcoud-Onlyoffice/edit/main/README.md#manual-instructions)
+
 ### Run command to files:
 ```
 curl -s https://raw.githubusercontent.com/LinuxOperator/Nextcoud-Onlyoffice/main/setup.sh | bash
@@ -69,7 +71,24 @@ Try creating/opening a ".docx" file, if it doesn't work try running the above co
 rm -rf /portainer/Files/AppData/Config/Nextcloud/
 ```
 
-## Manual Instructions
+4. Issues logging in on mobile app
+   - Modify your config:
+```
+nano /portainer/Files/AppData/Config/Nextcloud/web_data/config/config.php
+```
+Change This:
+```
+  'overwrite.cli.url' => 'http://192.168.0.10:4030',
+```
+To This:
+```
+  'overwrite.cli.url' => 'https://192.168.0.10:4030',
+  'overwriteprotocol' => 'https',
+```
+
+
+
+# Manual Instructions
 
 ## Self signed certs:
 
