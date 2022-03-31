@@ -12,6 +12,8 @@ services:
     container_name: nextcloud_onlyoffice
     image: onlyoffice/documentserver:latest
     restart: unless-stopped
+    environment:
+      - USE_UNAUTHORIZED_STORAGE=true
     volumes:
       - /portainer/Files/AppData/Config/Nextcloud/onlyoffice/redis:/var/lib/redis
       - /portainer/Files/AppData/Config/Nextcloud/onlyoffice/fonts:/usr/share/fonts/truetype/custom
@@ -25,10 +27,11 @@ services:
     image: nginx
     restart: unless-stopped
     ports:
-      - 8030:80
+      - 4030:443
     volumes:
       - /portainer/Files/Inputs/nginx/nginx.conf:/etc/nginx/nginx.conf
       - /portainer/Files/AppData/Config/Nextcloud/web_data:/var/www/html
+      - /portainer/Files/Inputs/certs:/etc/nginx/certs
   nextcloud_db:
     image: linuxserver/mariadb
     container_name: nextcloud_db
