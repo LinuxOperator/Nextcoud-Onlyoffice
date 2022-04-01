@@ -2,6 +2,9 @@
 
 Follow the instructions bellow to install Nextcloud and Onlyoffice in portainer (docker).
 
+Finished system uses SSL and consumes 1.5gb of ram (900mb memory + 600mb cache).
+
+
 **Summary of steps:**
 1. Generate SSL certs
 2. Place files in Portainer
