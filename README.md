@@ -152,6 +152,11 @@ sudo nano /portainer/Files/AppData/Config/Nextcloud/web_data/config/config.php
     2 => 'test.yourdomain.com',
 ```
 
+If you have not made any changes to the config.php you can simply execute this command
+```
+docker exec -u www-data nextcloud_app php occ --no-warnings config:system:set trusted_domains 2 --value="<DOMAIN NAME>"
+```
+
 #### 2. If you want to use SMB you need to enable the Add-on "External Storage" and install the smbclient.
 - In the portainer execute this:
 ```
